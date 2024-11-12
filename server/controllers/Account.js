@@ -30,6 +30,7 @@ const login = (req, res) => {
     });
 };
 
+// Fixed now
 const signup = async (req, res) => {
     const username = `${req.body.username}`;
     const pass = `${req.body.pass}`;
