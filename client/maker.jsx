@@ -22,7 +22,7 @@ const handleDomo = (e, onDomoAdded) => {
 const DomoForm = (props) => {
     return (
         <form id='domoForm'
-            onSubmit={(e) => handleDomo(e, props.triggerRelead)}
+            onSubmit={(e) => handleDomo(e, props.triggerReload)}
             name='domoForm'
             action='/maker'
             method='POST'
@@ -48,4 +48,50 @@ const DomoList = (props) => {
         };
         loadDomosFromServer();
     }, [props.reloadDomos]);
-}
+
+    if(domos.length === 0) {
+        return (
+            <div className='domoList'>
+                <h3 className='emptyDomo'>No Domos Yet!</h3>
+            </div>
+        );
+    }
+
+    const domoNodes = domos.map(domo => {
+        return (
+            <div key={domo.id} className='domo'>
+                <img src='/assets/img/domoface.jpg' alt='domo face' className='domoFace' />
+                <h3 className='domoName'>Name: {domo.name}</h3>
+                <h3 className='domoAge'>Age: {domo.age}</h3>
+            </div>
+        );
+    });
+
+    return (
+        <div className='domoList'>
+            {domoNodes}
+        </div>
+    );
+};
+
+const App = () => {
+    const [reloadDomos, setReloadDomos] = useState(false);
+
+    return (
+        <div>
+            <div id='makeDomo'>
+                <DomoForm triggerReload={() => setReloadDomos(!reloadDomos)} />
+            </div>
+            <div id='domos'>
+                <DomoList domos={[]} reloadDomos={reloadDomos} />
+            </div>
+        </div>
+    );
+};
+
+const init = () => {
+    const root = createRoot(document.getElementById('app'));
+    root.render( <App /> );
+};
+
+window.onload = init;
