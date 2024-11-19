@@ -32,8 +32,8 @@ const DomoForm = (props) => {
             <input id='domoName' type='text' name='name' placeholder='Domo Name' />
             <label htmlFor='age'>Age: </label>
             <input id='domoAge' type='number' min='0' name='age' />
-            <label htmlFor='img'>Image URL: </label>
-            <input id='domoImg' type='text' name='img' placeholder='Domo Image URL'/>
+            <label htmlFor='domoImg'>Image URL: </label>
+            <input id='domoImg' type='text' name='domoImg' placeholder='Domo Image URL'/>
             <input className='makeDomoSubmit' type='submit' value='Make Domo' />
         </form>
     );
@@ -64,7 +64,6 @@ const DomoList = (props) => {
             <div key={domo.id} className='domo'>
                 <img src='/assets/img/domoface.jpg' alt='domo face' className='domoFace' />
                 <h3 className='domoName'>Name: {domo.name}</h3>
-                <img src={domo.img} alt='domo img' className='domoFace'/>
                 <h3 className='domoAge'>Age: {domo.age}</h3>
             </div>
         );

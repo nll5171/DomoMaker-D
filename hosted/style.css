@@ -256,6 +256,15 @@ h3.domoAge {
     font-size: 1.5em;
 }
 
+h3.domoImg {
+    float: right;
+    text-align: left;
+    width: 200px;
+    font-weight: bold;
+    padding-right: 40px;
+    font-size: 1.5em;
+}
+
 .domo:first-child {
     margin-top: 10px;
 }
