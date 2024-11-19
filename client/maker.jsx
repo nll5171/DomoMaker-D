@@ -32,8 +32,6 @@ const DomoForm = (props) => {
             <input id='domoName' type='text' name='name' placeholder='Domo Name' />
             <label htmlFor='age'>Age: </label>
             <input id='domoAge' type='number' min='0' name='age' />
-            <label htmlFor='domoImg'>Image URL: </label>
-            <input id='domoImg' type='text' name='domoImg' placeholder='Domo Image URL'/>
             <input className='makeDomoSubmit' type='submit' value='Make Domo' />
         </form>
     );
