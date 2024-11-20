@@ -114,7 +114,7 @@ const PassChangeWindow = (props) => {
         <form id='passChangeForm'
             name='passChangeForm'
             obSubmit={handlePassChange}
-            action='/passChange'
+            action='/changePass'
             method='POST'
             className='mainForm'
         >
