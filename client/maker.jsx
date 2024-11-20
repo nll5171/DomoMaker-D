@@ -20,6 +20,22 @@ const handleDomo = (e, onDomoAdded) => {
     return false;
 };
 
+const handlePassChange = (e) => {
+    e.preventDefault();
+    helper.hideError();
+
+    const pass = e.target.querySelector('#pass').value;
+    const pass2 = e.target.querySelector('#pass2').value;
+
+    if (!pass || !pass2) {
+        helper.handleError('All fields are required!');
+        return false;
+    }
+    
+    helper.sendPost(e.target.action, {pass, pass2});
+    return false;
+}
+
 const DomoForm = (props) => {
     return (
         <form id='domoForm'
@@ -93,8 +109,34 @@ const App = () => {
     );
 };
 
+const PassChangeWindow = (props) => {
+    return (
+        <form id='passChangeForm'
+            name='passChangeForm'
+            obSubmit={handlePassChange}
+            action='/passChange'
+            method='POST'
+            className='mainForm'
+        >
+            <label htmlFor='pass'>Pawword: </label>
+            <input id='pass' type='password' name='pass' placeholder='password' />
+            <label htmlFor='pass2'>Password: </label>
+            <input id='pass2' type='password' name='pass2' placeholder='retype password' />
+            <input className="formSubmit" type="submit" value="Change password" />
+        </form>
+    );
+};
+
 const init = () => {
+    const passChangeButton = document.getElementById('passChangeButton');
     const root = createRoot(document.getElementById('app'));
+
+    passChangeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        root.render( <PassChangeWindow /> );
+        return false;
+    });
+
     root.render( <App /> );
 };
 

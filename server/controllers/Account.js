@@ -57,9 +57,30 @@ const signup = async (req, res) => {
   }
 };
 
+// Update password to account if logged in
+const changePass = async (req, res) => {
+  const pass = `${req.body.pass}`;
+  const pass2 = `${req.body.pass2}`;
+
+  if (pass !== pass2) {
+    return res.status(400).json({ error: 'Passwords do not match!' });
+  }
+
+  // attempt to change password
+  try {
+    const hash = await Account.generateHash(pass);
+    // Gonna try searching by id, can use findOneAndUpdate if fails
+    await Account.findByIdAndUpdate(req.session.account._id, { password: hash }).lean().exec();
+    return res.json({ redirect: '/maker' });
+  } catch (err) {
+    return res.status(500).json({ error: 'An error occurred! '});
+  }
+};
+
 module.exports = {
   loginPage,
   login,
   logout,
   signup,
+  changePass,
 };
