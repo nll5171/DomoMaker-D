@@ -118,7 +118,7 @@ const PassChangeWindow = (props) => {
             method='POST'
             className='mainForm'
         >
-            <label htmlFor='pass'>Pawword: </label>
+            <label htmlFor='pass'>Password: </label>
             <input id='pass' type='password' name='pass' placeholder='password' />
             <label htmlFor='pass2'>Password: </label>
             <input id='pass2' type='password' name='pass2' placeholder='retype password' />

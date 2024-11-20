@@ -73,7 +73,7 @@ const changePass = async (req, res) => {
     await Account.findByIdAndUpdate(req.session.account._id, { password: hash }).lean().exec();
     return res.json({ redirect: '/maker' });
   } catch (err) {
-    return res.status(500).json({ error: 'An error occurred! '});
+    return res.status(500).json({ error: 'An error occurred! ' });
   }
 };
 
