@@ -9,13 +9,14 @@ const handleDomo = (e, onDomoAdded) => {
 
     const name = e.target.querySelector('#domoName').value;
     const age = e.target.querySelector('#domoAge').value;
+    const img = e.target.querySelector('#domoImg').value;
 
-    if(!name || !age) {
+    if(!name || !age || !img) {
         helper.handleError('All fields are required');
         return false;
     }
 
-    helper.sendPost(e.target.action, {name, age}, onDomoAdded);
+    helper.sendPost(e.target.action, {name, age, img}, onDomoAdded);
     return false;
 };
 

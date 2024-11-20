@@ -6,7 +6,7 @@ const makerPage = async (req, res) => res.render('app');
 
 const makeDomo = async (req, res) => {
   if (!req.body.name || !req.body.age || !req.body.img) {
-    return res.status(400).json({ error: 'Both name and age are required!' });
+    return res.status(400).json({ error: 'Name, age, and image URL are required!' });
   }
 
   const domoData = {
