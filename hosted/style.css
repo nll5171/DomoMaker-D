@@ -67,9 +67,9 @@ nav:nth-child(1) {
     color: white;
 }
 
-.domoForm input[type=text] {
+/* .domoForm input[type=text] {
     float:left;
-}
+} */
 
 .makeDomoSubmit {
     transition: background-color 0.4s ease;
@@ -248,18 +248,9 @@ h3.domoName {
 }
 
 h3.domoAge {
-    /* float:right; */
+    float:right;
     text-align: left;
     width: 100px;
-    font-weight: bold;
-    padding-right: 40px;
-    font-size: 1.5em;
-}
-
-h3.domoImg {
-    float: right;
-    text-align: left;
-    width: 200px;
     font-weight: bold;
     padding-right: 40px;
     font-size: 1.5em;
