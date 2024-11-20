@@ -5,21 +5,21 @@ const { Domo } = models;
 const makerPage = async (req, res) => res.render('app');
 
 const makeDomo = async (req, res) => {
-  if (!req.body.name || !req.body.age || !req.body.img) {
+  if (!req.body.name || !req.body.age || !req.body.job) {
     return res.status(400).json({ error: 'Name, age, and image URL are required!' });
   }
 
   const domoData = {
     name: req.body.name,
     age: req.body.age,
-    img: req.body.img,
+    job: req.body.job,
     owner: req.session.account._id,
   };
 
   try {
     const newDomo = new Domo(domoData);
     await newDomo.save();
-    return res.status(201).json({ name: newDomo.name, age: newDomo.age, img: newDomo.img });
+    return res.status(201).json({ name: newDomo.name, age: newDomo.age, job: newDomo.job });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {
@@ -32,7 +32,7 @@ const makeDomo = async (req, res) => {
 const getDomos = async (req, res) => {
   try {
     const query = { owner: req.session.account._id };
-    const docs = await Domo.find(query).select('name age img').lean().exec();
+    const docs = await Domo.find(query).select('name age job').lean().exec();
 
     return res.json({ domos: docs });
   } catch (err) {
