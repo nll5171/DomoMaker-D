@@ -60,11 +60,16 @@ nav:nth-child(1) {
 
 .domoForm label {
     display: inline-block;
-    width: 75px;
+    width: 120px;
     margin-left: 10px;
     font-size: 1.2em;
     float: left;
+    text-align: right;
     color: white;
+}
+
+.domoForm:first-child {
+    text-align: left;
 }
 
 .domoForm input {
