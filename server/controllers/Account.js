@@ -70,7 +70,7 @@ const changePass = async (req, res) => {
   try {
     const hash = await Account.generateHash(pass);
     // Gonna try searching by id, can use findOneAndUpdate if fails
-    await Account.findByIdAndUpdate(req.session.account._id, { password: hash }).lean().exec();
+    await Account.findByIdAndUpdate(req.session.account._id, { password: hash });
     return res.json({ redirect: '/maker' });
   } catch (err) {
     return res.status(500).json({ error: 'An error occurred! ' });
