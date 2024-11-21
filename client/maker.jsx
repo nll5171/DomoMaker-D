@@ -120,7 +120,7 @@ const PassChangeWindow = () => {
         <form id="changePassForm"
             name="changePassForm"
             onSubmit={handleChangePass}
-            action="/signup"
+            action="/changePass"
             method="POST"
             className="mainForm"
         >
