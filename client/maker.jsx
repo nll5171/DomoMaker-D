@@ -113,17 +113,17 @@ const App = () => {
 
 const PassChangeWindow = (props) => {
     return (
-        <form id='passChangeForm'
-            name='passChangeForm'
-            obSubmit={handleChangePass}
-            action='/changePass'
-            method='POST'
-            className='mainForm'
+        <form id="changePassForm"
+            name="changePassForm"
+            onSubmit={(e) => handleChangePass(e)}
+            action="/signup"
+            method="POST"
+            className="mainForm"
         >
-            <label htmlFor='pass'>Password: </label>
-            <input id='pass' type='password' name='pass' placeholder='password' />
-            <label htmlFor='pass2'>Password: </label>
-            <input id='pass2' type='password' name='pass2' placeholder='retype password' />
+            <label htmlFor="pass">Password: </label>
+            <input id="pass" type="password" name="pass" placeholder="password" />
+            <label htmlFor="pass2">Password: </label>
+            <input id="pass2" type="password" name="pass2" placeholder="retype password" />
             <input className="formSubmit" type="submit" value="Change" />
         </form>
     );
