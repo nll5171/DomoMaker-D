@@ -25,6 +25,8 @@ const sendPost = async (url, data, handler) => {
         body: JSON.stringify(data),
     });
 
+    console.log(response);
+
     const result = await response.json();
     document.getElementById('domoMessage').classList.add('hidden');
 
