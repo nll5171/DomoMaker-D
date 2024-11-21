@@ -32,7 +32,13 @@ const handleChangePass = (e) => {
         return false;
     }
 
+    if(pass !== pass2) {
+        helper.handleError('Passwords do not match!');
+        return false;
+    }
+
     helper.sendPost(e.target.action, {pass, pass2});
+
     return false;
 }
 
@@ -109,11 +115,11 @@ const App = () => {
     );
 };
 
-const PassChangeWindow = (props) => {
+const PassChangeWindow = () => {
     return (
         <form id="changePassForm"
             name="changePassForm"
-            onSubmit={(e) => handleChangePass(e)}
+            onSubmit={handleChangePass}
             action="/signup"
             method="POST"
             className="mainForm"
