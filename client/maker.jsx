@@ -31,11 +31,9 @@ const handleChangePass = (e) => {
         helper.handleError('All fields are required!');
         return false;
     }
-    
-    console.log(pass);
 
-    //helper.sendPost(e.target.action, {pass, pass2});
-    //return false;
+    helper.sendPost(e.target.action, {pass, pass2});
+    return false;
 }
 
 const DomoForm = (props) => {
