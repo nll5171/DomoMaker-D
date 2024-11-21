@@ -20,7 +20,7 @@ const handleDomo = (e, onDomoAdded) => {
     return false;
 };
 
-const handlePassChange = (e) => {
+const handleChangePass = (e) => {
     e.preventDefault();
     helper.hideError();
 
@@ -32,8 +32,10 @@ const handlePassChange = (e) => {
         return false;
     }
     
-    helper.sendPost(e.target.action, {pass, pass2});
-    return false;
+    console.log(pass);
+
+    //helper.sendPost(e.target.action, {pass, pass2});
+    //return false;
 }
 
 const DomoForm = (props) => {
@@ -113,7 +115,7 @@ const PassChangeWindow = (props) => {
     return (
         <form id='passChangeForm'
             name='passChangeForm'
-            obSubmit={handlePassChange}
+            obSubmit={handleChangePass}
             action='/changePass'
             method='POST'
             className='mainForm'
